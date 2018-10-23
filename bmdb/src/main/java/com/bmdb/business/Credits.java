@@ -1,16 +1,30 @@
 package com.bmdb.business;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+@Entity
 public class Credits {
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int ID;
-	private int actorID;
-	private int movieID;
+	@ManyToOne
+	@JoinColumn(name="actorID")
+	private Actor actor;
+	@ManyToOne
+	@JoinColumn(name="movieID")
+	private Movie movie;
 	private String characterName;
 	
-	public Credits(int iD, int actorID, int movieID, String characterName) {
+	public Credits(int iD, Actor actor, Movie movie, String characterName) {
 		super();
-		ID = iD;
-		this.actorID = actorID;
-		this.movieID = movieID;
+		this.ID = iD;
+		this.actor = actor;
+		this.movie = movie;
 		this.characterName = characterName;
 	}
 
@@ -26,20 +40,20 @@ public class Credits {
 		ID = iD;
 	}
 
-	public int getActorID() {
-		return actorID;
+	public Actor getActor() {
+		return actor;
 	}
 
-	public void setActorID(int actorID) {
-		this.actorID = actorID;
+	public void setActor(Actor actor) {
+		this.actor = actor;
 	}
 
-	public int getMovieID() {
-		return movieID;
+	public Movie getMovie() {
+		return movie;
 	}
 
-	public void setMovieID(int movieID) {
-		this.movieID = movieID;
+	public void setMovie(Movie movie) {
+		this.movie = movie;
 	}
 
 	public String getCharacterName() {
@@ -52,7 +66,7 @@ public class Credits {
 
 	@Override
 	public String toString() {
-		return "Credits [ID=" + ID + ", actorID=" + actorID + ", movieID=" + movieID + ", characterName="
+		return "Credits [ID=" + ID + ", actor=" + actor + ", movie=" + movie + ", characterName="
 				+ characterName + "]";
 	}
 	
