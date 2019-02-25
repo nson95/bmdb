@@ -70,8 +70,8 @@ public class Actor {
 
 	@Override
 	public String toString() {
-		return "Actor [firstName=" + firstName + ", lastName=" + lastName + ", gender=" + gender + ", birthDate="
-				+ birthDate + "]";
+		return firstName + ", " + lastName + ", born: "
+				+ birthDate +".";
 	}
 	
 	
