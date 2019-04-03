@@ -27,7 +27,7 @@ public class MovieController {
 		return JsonResponse.getInstance(movieRepo.findAll());
 		}
 		catch (Exception e) {
-			return JsonResponse.getErrorInstance("Error getting all movies.", e);
+			return JsonResponse.getErrorInstance("Error retrieving movies.", e);
 		}
 	}
 	
